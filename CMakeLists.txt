@@ -24,6 +24,7 @@ add_executable(${MY_TARGET}
    src/main.c
    src/ssd1306.c
    src/fonts.c
+   src/i2c_mw.c
 )
 
 #Enable printing over USB and disable printing over UART
