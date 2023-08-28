@@ -1,5 +1,10 @@
 import os
 
+# Invoke breaks with Python 3.11. The workaround is to import inspect and do the following
+import inspect
+if not hasattr(inspect, 'getargspec'):
+    inspect.getargspec = inspect.getfullargspec
+
 from invoke import Collection, task
 
 ROOT_DIR = os.path.dirname(__file__)
@@ -22,7 +27,7 @@ def debug(c):
 @task
 def clean(c):
     """Clean all binaries build from project"""
-    c.run("rm -rf build/* {}".format(EXE)) 
+    c.run("rm -rf build/*".format(EXE)) 
     
 @task
 def test(c):

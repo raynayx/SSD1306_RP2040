@@ -1,5 +1,9 @@
 #include "i2c_mw.h"
 
+#ifdef _BOARDS_SEEED_XIAO_RP2040_H
+#define XIAO_I2C_SDA_PIN 4u //28u		//found on A2/D2
+#define XIAO_I2C_SCL_PIN 5u //29u		//found on A3/D3
+#endif
 
 void i2c_setup(i2c_inst_t *i2c_num)
 {
